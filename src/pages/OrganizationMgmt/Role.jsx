@@ -68,12 +68,13 @@ const Role = () => {
     };
     return (
         <div className="mt-[60px] max-lg:h-screen px-5 w-full py-5 relative">
-            <h1 className="text-2xl font-semibold mb-4">
-                {roleEditData
-                    ? `Edit Group - ${roleEditData.Id}`
-                    : "Add New Group"}
-            </h1>
-            <div>
+            <h1 className='text-2xl font-bold mb-6'>Roles</h1>
+            <div className='rounded-lg p-4' style={{ border: `1px solid ${theme.text}` }}>
+                <h1 className="text-xl font-semibold mb-4">
+                    {roleEditData
+                        ? `Edit Role - ${roleEditData.Id}`
+                        : "Add New Role"}
+                </h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid lg:grid-cols-3 gap-5">
                         <div>
@@ -159,7 +160,7 @@ const Role = () => {
                     </div>
                 </form>
             </div>
-            <h1 className="text-2xl font-semibold mt-10">Listed Organizations</h1>
+            <h1 className="text-xl font-semibold mt-10">Listed Roles</h1>
             <div className="overflow-x-auto mt-5">
                 <table className="min-w-full border-collapse border    ">
                     <thead className="whitespace-nowrap capitalize">

@@ -72,12 +72,14 @@ const Department = () => {
     };
     return (
         <div className="mt-[60px] max-lg:h-screen px-5 w-full py-5 relative">
-            <h1 className="text-2xl font-semibold mb-4" style={{ color: theme.text, background: theme.backBg }}>
-                {departmentEditData
-                    ? `Edit Department - ${departmentEditData.Id}`
-                    : "Add New Department"}
-            </h1>
-            <div>
+            <h1 className='text-2xl font-bold mb-6'>Departments</h1>
+
+            <div className='rounded-lg p-4' style={{ border: `1px solid ${theme.text}` }}>
+                <h1 className="text-xl font-semibold mb-4" style={{ color: theme.text, background: theme.backBg }}>
+                    {departmentEditData
+                        ? `Edit Department - ${departmentEditData.Id}`
+                        : "Add New Department"}
+                </h1>
                 <form onSubmit={handleSubmit} className="space-y-4" >
                     <div className="grid lg:grid-cols-4 gap-5">
                         <div>
@@ -196,7 +198,7 @@ const Department = () => {
                     </div>
                 </form>
             </div>
-            <h1 className="text-2xl font-semibold mt-10">Listed Organizations</h1>
+            <h1 className="text-xl font-semibold mt-10">Listed Departments</h1>
             <div className="overflow-x-auto mt-5">
                 <table className="min-w-full border-collapse border " style={{ background: theme.backBg }}>
                     <thead className=" whitespace-nowrap capitalize">

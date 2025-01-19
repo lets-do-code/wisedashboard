@@ -14,8 +14,8 @@ const UserListing = () => {
 
     return (
         <div className='mt-[60px] relative w-full py-5 px-5  max-lg:h-screen '>
-            <div className='flex justify-between mb-5'>
-                <h1 className='text-2xl font-semibold'>User Listing </h1>
+            <div className='flex justify-between items-center mb-5'>
+                <h1 className='text-2xl font-bold'>User Listing </h1>
                 <button className='p-2 lg:px-5 bg-[#2A9B63] rounded-md text-white' onClick={handleAddUser}>Add New User</button>
 
             </div>

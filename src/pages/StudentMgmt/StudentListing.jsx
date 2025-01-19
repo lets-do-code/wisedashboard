@@ -19,7 +19,8 @@ const StudentListing = () => {
     return (
         <div className='mt-[60px] max-lg:h-screen  w-full py-5 px-5 relative'>
             <div className='flex justify-between mb-5'>
-                <h1 className='text-2xl font-semibold'>Student Listing </h1>
+
+                <h1 className='text-2xl font-bold'>Student Listing </h1>
                 <button className='py-2 px-2 lg:px-5 rounded-md text-white' onClick={handleAddStudent}
                     style={{ background: theme.buttonBg, }}
                 >Add New Student</button>

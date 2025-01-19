@@ -23,7 +23,7 @@ export const DataProvider = ({ children }) => {
 
   });
   const [popup, setPopup] = useState(false);
-  const [openSidebar, setOpenSidebar] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(true);
   const [editData, setEditData] = useState({})
 
   const [usersData, setUsersData] = useState([
