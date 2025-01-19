@@ -58,7 +58,7 @@ const Index = () => {
 
 
     return (
-        <div className='mt-[60px] w-full py-5 '>
+        <div className='mt-[60px] w-full py-5  pb-5'>
             <h1 className="text-2xl font-bold mb-6 px-5">Dashboard</h1>
             <ShowWeather />
 
@@ -69,7 +69,7 @@ const Index = () => {
                 <DataCard count={activeUsers?.length > 0 ? activeUsers?.length : "0"} name={"Active Users"} icon={<PiStudentBold size={60} />} />
 
             </div>
-            <div className="px-5 overflow-auto">
+            <div className="px-5 overflow-auto lg:pb-5">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     <div className="shadow-md p-1 lg:p-4 rounded-lg" style={{ background: theme.bgColor }}>

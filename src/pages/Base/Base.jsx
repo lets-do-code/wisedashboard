@@ -92,7 +92,7 @@ const Base = () => {
                     </div>
                 </div>
 
-                <div className={`${openSidebar ? "lg:w-[80%]" : "lg:w-[97%]"} lg:h-[100vh] overflow-auto  max-lg:w-full  flex transition-all ease-linear duration-300`}
+                <div className={`${openSidebar ? "lg:w-[80%]" : "lg:w-[97%]"} lg:h-[100vh]  overflow-auto  max-lg:w-full  flex transition-all ease-linear duration-300`}
                     style={{ backgroundColor: theme.backBg }}>
                     <Routes>
                         <Route path="/" element={<Home />} />
