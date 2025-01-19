@@ -6,16 +6,9 @@ import { FaUsers } from "react-icons/fa";
 import DataContext from '../../context/DataContext';
 import { Line, Bar } from 'react-chartjs-2';
 import {
-    Chart as ChartJS,
-    LineElement,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
+    Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend,
 } from 'chart.js';
+import ShowWeather from '../../components/ShowWeather';
 
 ChartJS.register(
     LineElement,
@@ -65,16 +58,18 @@ const Index = () => {
 
 
     return (
-        <div className='mt-[60px]  w-full py-5'>
+        <div className='mt-[60px] w-full py-5 '>
             <h1 className="text-2xl font-bold mb-6 px-5">Dashboard</h1>
+            <ShowWeather />
 
             <div className='grid grid-cols-1 lg:px-5 lg:grid-cols-3 max-lg:px-5 gap-5 lg:gap-10'>
+
                 <DataCard count={studentsData.length > 0 ? studentsData.length : "0"} name={"Total Students"} icon={<PiStudentBold size={60} />} />
                 <DataCard count={groupData.length > 0 ? groupData.length : "0"} name={"Total Groups"} icon={<FaUsers size={60} />} />
                 <DataCard count={activeUsers?.length > 0 ? activeUsers?.length : "0"} name={"Active Users"} icon={<PiStudentBold size={60} />} />
 
             </div>
-            <div className="px-5">
+            <div className="px-5 overflow-auto">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     <div className="shadow-md p-1 lg:p-4 rounded-lg" style={{ background: theme.bgColor }}>

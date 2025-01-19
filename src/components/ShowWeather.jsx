@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import WeatherCard from './WeatherCard';
 
 const ShowWeather = () => {
     const [weatherData, setWeatherData] = useState(null);
-
-    const [wtr, setwtr] = useState([]);
     const [hour, setHour] = useState([]);
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState([]);
@@ -23,8 +22,10 @@ const ShowWeather = () => {
                                 `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}`
                             )
                             .then((response) => {
-                                setResult(response.data);
-                                console.log({ response });
+                                setWeatherData(response.data);
+                                setHour(response.data.forecast.forecastday[0].hour);
+
+
                             })
                             .catch((error) => {
                                 console.log(error);
@@ -34,56 +35,34 @@ const ShowWeather = () => {
                         console.log(error);
                     }
                 );
-
-                // Update state variables
-                setWeatherData(result);
-                setHour(result.forecast.forecastday[0].hour);
-                setHour(result.data.forecast?.forecastday[0].hour);
-                console.log({ hour });
-
-                setwtr(result.data);
-                setHour(result.data.forecast?.forecastday[0].hour);
                 console.log(result);
             } catch (e) {
                 console.log(e);
             }
+            setLoading(false)
         };
         fun();
-    }, [hour, result]);
-
-    // useEffect(() => {
-    //     const fetchWeather = async () => {
-    //         try {
-    //             const response = await axios.get('YOUR_WEATHER_API_URL');
-    //             setWeatherData(response.data);
-    //         } catch (error) {
-    //             console.error('Error fetching weather data:', error);
-    //         }
-    //     };
-
-    //     fetchWeather();
-    // }, []);
-
-
-    console.log(weatherData)
-
-    const data = {
-        labels: weatherData ? weatherData.map(item => item.date) : [],
-        datasets: [
-            {
-                label: 'Temperature',
-                data: weatherData ? weatherData.map(item => item.temperature) : [],
-                fill: false,
-                backgroundColor: 'rgba(75,192,192,0.4)',
-                borderColor: 'rgba(75,192,192,1)',
-            },
-        ],
-    };
+    }, []);
 
     return (
-        <div>
-            <h2>Weather Graph</h2>
-            {/* {weatherData ? <Line data={data} /> : <p>Loading...</p>} */}
+        <div className=' px-5 mb-6'>
+            <h2 className='font-semibold'>Weather Update</h2>
+            {!loading ?
+                <div className=' flex gap-5 overflow-auto scrollbar'>
+                    {hour.map((item, i) => {
+                        const time = new Date(item.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+                        return (
+                            <div key={i}>
+                                <WeatherCard temp={item.temp_c} time={time} text={item.condition.text} />
+                            </div>
+                        );
+                    })}
+                </div>
+                :
+                <div className='h-[100px]'>
+                    Data is loading...
+                </div>
+            }
         </div>
     );
 };
