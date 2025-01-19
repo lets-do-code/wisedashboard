@@ -17,7 +17,7 @@ const ShowWeather = () => {
                         const apiKey = "8611baa95180437492f54121230505";
 
                         const response = await axios.get(
-                            `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}`
+                            `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}`
                         );
                         setWeatherData(response.data);
                         setHour(response.data.forecast.forecastday[0].hour);
