@@ -22,6 +22,7 @@ const ShowWeather = () => {
                                 `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}`
                             )
                             .then((response) => {
+                                setLoading(false)
                                 setWeatherData(response.data);
                                 setHour(response.data.forecast.forecastday[0].hour);
 
