@@ -10,7 +10,6 @@ const StudentListing = () => {
         studentsData, setStudentsData, popup, setPopup, theme
     } = useContext(DataContext);
 
-    console.log(studentsData);
 
     const handleAddStudent = () => {
         setPopup(true)

@@ -38,7 +38,6 @@ const WeatherCard = ({ icon, temp, time, text }) => {
         handleCurrTime();
     }, [time]);
 
-    console.log("Provided Time:", time, "Current Hour State:", currHour);
 
     return (
         <div
