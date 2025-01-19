@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Line } from 'react-chartjs-2';
 
 const ShowWeather = () => {
     const [weatherData, setWeatherData] = useState(null);
@@ -84,7 +83,7 @@ const ShowWeather = () => {
     return (
         <div>
             <h2>Weather Graph</h2>
-            {weatherData ? <Line data={data} /> : <p>Loading...</p>}
+            {/* {weatherData ? <Line data={data} /> : <p>Loading...</p>} */}
         </div>
     );
 };

@@ -89,7 +89,7 @@ const Role = () => {
                                 placeholder="Enter Id"
                                 className="mt-1 block w-full border outline-none  rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 disabled={!!roleEditData} // Disable ID field when editing
                             />
                         </div>
@@ -106,7 +106,7 @@ const Role = () => {
                                 placeholder="Select status"
                                 className="mt-1 block w-full border outline-none  rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
 
@@ -123,7 +123,7 @@ const Role = () => {
                                 placeholder='Enter your role'
                                 className="mt-1 block w-full border outline-none  rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         {roleEditData ? (
@@ -147,7 +147,7 @@ const Role = () => {
                                 </div>
                             </>
                         ) : (
-                            <div className="flex items-end col-span-2">
+                            <div className="flex items-end lg:col-span-1 col-span-2">
                                 <button
                                     type="submit"
                                     className="py-2 w-full bg-[#2A9B63] px-5 text-white font-semibold rounded-md"
@@ -164,10 +164,10 @@ const Role = () => {
                 <table className="min-w-full border-collapse border    ">
                     <thead className="whitespace-nowrap capitalize">
                         <tr>
-                            <th className="border   p-2 text-left">Id</th>
-                            <th className="border   p-2 text-left">role</th>
-                            <th className="border   p-2 text-left">Status</th>
-                            <th className="border   p-2 text-left">Action</th>
+                            <th className="border   p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Id</th>
+                            <th className="border   p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>role</th>
+                            <th className="border   p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Status</th>
+                            <th className="border   p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Action</th>
                         </tr>
                     </thead>
                     {roleData.length > 0 ? (
@@ -177,10 +177,10 @@ const Role = () => {
                                     key={index}
                                     className="whitespace-nowrap"
                                 >
-                                    <td className="border   p-2 capitalize">{row.Id}</td>
-                                    <td className="border   p-2">{row.role}</td>
-                                    <td className="border   p-2">{row.status}</td>
-                                    <td className="border   p-2">
+                                    <td className="border   p-2 capitalize" style={{ border: `1px solid ${theme.text}` }}>{row.Id}</td>
+                                    <td className="border   p-2" style={{ border: `1px solid ${theme.text}` }}>{row.role}</td>
+                                    <td className="border   p-2" style={{ border: `1px solid ${theme.text}` }}>{row.status}</td>
+                                    <td className="border   p-2" style={{ border: `1px solid ${theme.text}` }}>
                                         <div className="flex gap-2">
                                             <button
                                                 onClick={() => handleEditable(row.Id)}

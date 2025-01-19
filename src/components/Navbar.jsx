@@ -3,19 +3,54 @@ import { TbArrowsLeft } from "react-icons/tb";
 import { SideBarData } from "../data/SideBarData";
 import { Link, useNavigate } from "react-router-dom";
 import { RiLogoutBoxFill } from "react-icons/ri";
-import { DiVim } from "react-icons/di";
 import DataContext from "../context/DataContext";
 import { TbMoonStars } from "react-icons/tb";
 
 import { IoIosSunny } from "react-icons/io";
 const Navbar = () => {
     const navigate = useNavigate();
-    const { text, bgColor, buttonBg, theme } = useContext(DataContext)
+    const { theme, setTheme } = useContext(DataContext)
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const [openNavbar, setOpenNavbar] = useState(false);
     const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-    const [activeDark, setActiveDark] = useState(true);
+    const [darkMode, setDarkMode] = useState(
+        localStorage.getItem("theme") === "dark"
+    );
+
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
+    }, [darkMode]);
+
+    const toggleTheme = () => {
+        if (darkMode) {
+            // Set light theme
+            setTheme({
+                text: '#000000',
+                fontFamily: "",
+                buttonBg: '#2A9B63',
+                backBg: '#D0D1D2',
+                bgColor: '#ffffff',
+            });
+        } else {
+            // Set dark theme
+            setTheme({
+                text: '#9CA1A0',
+                fontFamily: "",
+                buttonBg: '#2A9B63',
+                backBg: '#1e293b',
+                bgColor: '#0f172a',
+            });
+        }
+
+        setDarkMode(!darkMode); // Toggle the dark mode state
+    };
 
     const handleLogout = () => {
         setOpenNavbar(!openNavbar);
@@ -45,9 +80,6 @@ const Navbar = () => {
     };
 
 
-    const viewMode = () => {
-        setActiveDark(!activeDark)
-    }
 
     useEffect(() => {
         const interval = setInterval(handleTime, 1000);
@@ -55,7 +87,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <div className="fixed max-lg:flex justify-between lg:grid lg:grid-cols-3 items-center z-20 w-full h-[60px] px-5"
+        <div className="fixed max-lg:flex justify-between lg:grid lg:grid-cols-3 items-center z-20 w-full h-[60px] px-5 transition-all duration-300"
             style={{ color: theme.text, background: theme.bgColor, fontFamily: theme.fontFamily }}
         >
             {/* Navbar Toggle */}
@@ -67,12 +99,12 @@ const Navbar = () => {
             <h1 className="text-2xl lg:text-3xl font-bold  ">Logo</h1>
 
             {/* Search Bar */}
-            <div className="w-[400px] hidden lg:block">
+            <div className="w-full flex justify-center max-lg:hidden">
                 <input
                     type="search"
                     placeholder="Search"
                     className="w-full py-1 rounded-lg outline-none px-2"
-                    style={{ background: theme.backBg }}
+                    style={{ background: theme.backBg, color: theme.text }}
                 />
             </div>
 
@@ -88,24 +120,16 @@ const Navbar = () => {
                     </p>
                     <p className="hidden lg:block   text-sm">Date: {date}</p>
                 </div>
-                {/* <div onClick={viewMode} className="cursor-pointer flex gap-1  relative w-[80px] h-[40px] rounded-full" style={{ background: theme.backBg }}>
-
-                    <IoIosSunny className={`${activeDark ? "" : "text-black"} z-10 absolute -top-[23%] left-1 text-3xl  translate-y-1/2`} />
-
-                    <TbMoonStars className={`${!activeDark ? "" : "text-black"} z-10 absolute  -top-[23%] text-3xl  right-1 translate-y-1/2`} />
-                    <div
-                        className={`rounded-full h-[30px] aspect-square bg-white absolute top-[15%] transition-transform duration-1000 ease-in-out ${activeDark ? "translate-x-[100%]" : "translate-x-0"
-                            }`}>
-
-                    </div>
-                </div> */}
-                {/* <label class="inline-flex items-center mb-5 cursor-pointer">
-                    <input type="checkbox" value="" class="sr-only peer" />
-                    <div class="relative w-14 h-8 bg-gray-200 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-gray-900">
-
-                    </div>
-                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-                </label> */}
+                <button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-full focus:outline-none transition duration-300 ease-in-out bg-gray-200 dark:bg-gray-800 shadow-md"
+                >
+                    {darkMode ? (
+                        <IoIosSunny className="h-6 w-6 text-yellow-500" />
+                    ) : (
+                        <TbMoonStars className="h-6 w-6 text-blue-500" />
+                    )}
+                </button>
                 <div className="w-12">
                     <img
                         src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"

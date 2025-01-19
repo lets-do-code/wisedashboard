@@ -95,9 +95,9 @@ const AddStudentForm = ({ heading }) => {
 
 
     return (
-        <div className='absolute max-lg:overflow-y-auto max-lg:py-24  max-lg:h-screen top-0 left-0 bg-white/5  w-full h-full flex justify-center items-center'>
+        <div className='max-lg:top-[10%] absolute max-lg:overflow-y-auto max-lg:py-24  max-lg:h-screen top-0 left-0 bg-white/5  w-full h-full flex justify-center items-center'>
 
-            <div className={` w-[90%] max-lg:mt-[500px] transition-all py-5 ease-linear duration-700 px-5 rounded-md   z-10`} style={{ color: theme.text, background: theme.bgColor, fontFamily: theme.fontFamily }}>
+            <div className={` w-[90%] max-lg:top-0 max-lg:mt-[100%] ${heading == "user" ? "max-lg:pt-60" : "max-lg:pt-80"} transition-all py-5 ease-linear duration-700 px-5 rounded-md   z-10`} style={{ color: theme.text, background: theme.bgColor, fontFamily: theme.fontFamily }}>
                 <div className='flex justify-between'>
                     <h2 className="text-2xl font-bold mb-6">{heading === "user" ? "Add User Data" : "Add Student Data"}</h2>
                     <span className='text-2xl cursor-pointer' onClick={handleClosePopup}>
@@ -121,7 +121,7 @@ const AddStudentForm = ({ heading }) => {
                                 placeholder='Enter Id'
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div>
@@ -136,7 +136,7 @@ const AddStudentForm = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder='Enter organization name'
                                 className="mt-1 block w-full border  outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div>
@@ -151,7 +151,7 @@ const AddStudentForm = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder='Enter group name'
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div>
@@ -166,7 +166,7 @@ const AddStudentForm = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder='Select status'
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                     </div>
@@ -183,7 +183,7 @@ const AddStudentForm = ({ heading }) => {
                                 value={formData.department}
                                 onChange={handleChange}
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className='max-lg:col-span-2'>
@@ -198,7 +198,7 @@ const AddStudentForm = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder='Enter your role'
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className='max-lg:col-span-2'>
@@ -213,7 +213,7 @@ const AddStudentForm = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder='Enter your name'
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className='max-lg:col-span-2'>
@@ -228,7 +228,7 @@ const AddStudentForm = ({ heading }) => {
                                 placeholder='Enter id card number'
                                 onChange={handleChange}
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className='max-lg:col-span-2'>
@@ -241,7 +241,7 @@ const AddStudentForm = ({ heading }) => {
                                 value={formData.gender}
                                 onChange={handleChange}
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             >
                                 <option value="">Select Gender</option>
                                 <option value="Male">Male</option>
@@ -263,7 +263,7 @@ const AddStudentForm = ({ heading }) => {
                                     onChange={handleChange}
                                     placeholder='Enter batch ID'
                                     className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                    required style={{ background: theme.backBg }}
+                                    required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 />
                             </div>
                         }
@@ -280,7 +280,7 @@ const AddStudentForm = ({ heading }) => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
 
@@ -296,7 +296,7 @@ const AddStudentForm = ({ heading }) => {
                                 rows={8}
                                 placeholder='Enter your address'
                                 className="mt-1 h-[8rem] resize-none block w-full border   outline-none rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
 
                             />
                         </div>
@@ -311,7 +311,7 @@ const AddStudentForm = ({ heading }) => {
                                 placeholder='Enter profile picture url'
                                 value={formData.profilePic}
                                 onChange={handleChange}
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
                             />
                         </div>
@@ -327,7 +327,7 @@ const AddStudentForm = ({ heading }) => {
                                 placeholder='Enter your email'
                                 value={formData.email}
                                 onChange={handleChange}
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 className="mt-1 block w-full border   outline-none rounded-md shadow-sm p-2"
                             />
                         </div>

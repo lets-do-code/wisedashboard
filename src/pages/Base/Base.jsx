@@ -1,17 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import Home from "../Home";
-import OrgMgmt from "../OrganizationMgmt";
-import StuMgmt from "../StudentMgmt";
-import UserMgmt from "../UserMgmt";
-import Settings from "../Settings";
 import { SideBarData } from '../../data/SideBarData';
 import Navbar from '../../components/Navbar';
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { TbArrowsLeft } from "react-icons/tb";
 import StudentListing from '../StudentMgmt/StudentListing';
-import Student from '../StudentMgmt/Student';
-import User from '../UserMgmt/User';
 import UserListing from '../UserMgmt/UserListing';
 import DataContext from '../../context/DataContext';
 import Department from '../OrganizationMgmt/Department';
@@ -24,7 +18,7 @@ import TimeSettings from '../Settings/TimeSettings';
 
 const Base = () => {
     const { openSidebar, setOpenSidebar, text, bgColor, buttonBg, backbg, theme } = useContext(DataContext);
-    const [openDropdownIndex, setOpenDropdownIndex] = useState(null); // Track the index of the open dropdown
+    const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
     const handleLogout = () => {
         alert("You have been logged out from the application");
@@ -35,7 +29,7 @@ const Base = () => {
     };
 
     const toggleDropdown = (index) => {
-        setOpenDropdownIndex((prevIndex) => (prevIndex === index ? null : index)); // Toggle or close other dropdowns
+        setOpenDropdownIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
     return (

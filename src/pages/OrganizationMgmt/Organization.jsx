@@ -96,7 +96,7 @@ const Organization = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder="Enter Id"
                                 className="mt-1 block w-full border  rounded-md outline-none shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 disabled={!!orgEditData} // Disable ID field when editing
                             />
                         </div>
@@ -112,7 +112,7 @@ const Organization = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder="Select status"
                                 className="mt-1 block w-full border  rounded-md outline-none shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className="max-lg:col-span-2">
@@ -127,7 +127,7 @@ const Organization = ({ heading }) => {
                                 onChange={handleChange}
                                 placeholder="Enter your name"
                                 className="mt-1 block w-full border  rounded-md outline-none  shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div>
@@ -142,7 +142,7 @@ const Organization = ({ heading }) => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 className="mt-1 block w-full border  rounded-md outline-none shadow-sm p-2"
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className="lg:col-span-2">
@@ -156,7 +156,7 @@ const Organization = ({ heading }) => {
                                 placeholder="Enter your email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 className="mt-1 block w-full border  rounded-md outline-none shadow-sm p-2"
                             />
                         </div>
@@ -172,7 +172,7 @@ const Organization = ({ heading }) => {
                                 rows={8}
                                 placeholder="Enter your address"
                                 className="mt-1 h-[8rem] resize-none block w-full border outline-none  rounded-md shadow-sm p-2"
-                                required style={{ background: theme.backBg }}
+                                required style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         {orgEditData ? (
@@ -213,12 +213,12 @@ const Organization = ({ heading }) => {
                 <table className="min-w-full border-collapse border   ">
                     <thead className=" whitespace-nowrap capitalize">
                         <tr>
-                            <th className="border  p-2 text-left">Id</th>
-                            <th className="border  p-2 text-left">Name</th>
-                            <th className="border  p-2 text-left">Phone</th>
-                            <th className="border  p-2 text-left">Email</th>
-                            <th className="border  p-2 text-left">Status</th>
-                            <th className="border  p-2 text-left">Action</th>
+                            <th className="border  p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Id</th>
+                            <th className="border  p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Name</th>
+                            <th className="border  p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Phone</th>
+                            <th className="border  p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Email</th>
+                            <th className="border  p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Status</th>
+                            <th className="border  p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Action</th>
                         </tr>
                     </thead>
                     {orgData.length > 0 ? (
@@ -228,14 +228,14 @@ const Organization = ({ heading }) => {
                                     key={index}
                                     className=" whitespace-nowrap"
                                 >
-                                    <td className="border  p-2 capitalize">{row.Id}</td>
-                                    <td className="border  p-2 capitalize">{row.name}</td>
-                                    <td className="border  p-2">
+                                    <td className="border  p-2 capitalize" style={{ border: `1px solid ${theme.text}` }}>{row.Id}</td>
+                                    <td className="border  p-2 capitalize" style={{ border: `1px solid ${theme.text}` }}>{row.name}</td>
+                                    <td className="border  p-2" style={{ border: `1px solid ${theme.text}` }}>
                                         <Link to={`tel:+${row.phone}`}>{row.phone}</Link>
                                     </td>
-                                    <td className="border  p-2">{row.email}</td>
-                                    <td className="border  p-2">{row.status}</td>
-                                    <td className="border  p-2">
+                                    <td className="border  p-2" style={{ border: `1px solid ${theme.text}` }}>{row.email}</td>
+                                    <td className="border  p-2" style={{ border: `1px solid ${theme.text}` }}>{row.status}</td>
+                                    <td className="border  p-2" style={{ border: `1px solid ${theme.text}` }}>
                                         <div className="flex gap-2">
                                             <button
                                                 onClick={() => handleEditable(row.Id)}

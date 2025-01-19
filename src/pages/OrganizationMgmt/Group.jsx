@@ -91,7 +91,7 @@ const Group = () => {
                                 placeholder="Enter Id"
                                 className="mt-1 block w-full border outline-none    rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                                 disabled={!!groupEditData} // Disable ID field when editing
                             />
                         </div>
@@ -107,7 +107,7 @@ const Group = () => {
                                 onChange={handleChange}
                                 placeholder="Select status"
                                 className="mt-1 block w-full border  outline-none   rounded-md shadow-sm p-2"
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className='lg:col-span-2'>
@@ -123,7 +123,7 @@ const Group = () => {
                                 placeholder='Enter organization name'
                                 className="mt-1 block w-full border outline-none    rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         <div className='lg:col-span-2'>
@@ -139,7 +139,7 @@ const Group = () => {
                                 placeholder='Enter group name'
                                 className="mt-1 block w-full border  outline-none   rounded-md shadow-sm p-2"
                                 required
-                                style={{ background: theme.backBg }}
+                                style={{ background: theme.backBg, border: `1px solid ${theme.text}` }}
                             />
                         </div>
                         {groupEditData ? (
@@ -180,11 +180,11 @@ const Group = () => {
                 <table className="min-w-full border-collapse border      ">
                     <thead className=" whitespace-nowrap capitalize">
                         <tr>
-                            <th className="border    p-2 text-left">Id</th>
-                            <th className="border    p-2 text-left">organization:</th>
-                            <th className="border    p-2 text-left">group</th>
-                            <th className="border    p-2 text-left">Status</th>
-                            <th className="border    p-2 text-left">Action</th>
+                            <th className="border    p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Id</th>
+                            <th className="border    p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>organization:</th>
+                            <th className="border    p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>group</th>
+                            <th className="border    p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Status</th>
+                            <th className="border    p-2 text-left" style={{ border: `1px solid ${theme.text}` }}>Action</th>
                         </tr>
                     </thead>
                     {groupData.length > 0 ? (
@@ -194,11 +194,11 @@ const Group = () => {
                                     key={index}
                                     className=" whitespace-nowrap"
                                 >
-                                    <td className="border p-2 capitalize">{row.Id}</td>
-                                    <td className="border p-2 capitalize">{row.organization}</td>
-                                    <td className="border p-2">{row.group}</td>
-                                    <td className="border p-2">{row.status}</td>
-                                    <td className="border p-2">
+                                    <td className="border p-2 capitalize" style={{ border: `1px solid ${theme.text}` }}>{row.Id}</td>
+                                    <td className="border p-2 capitalize" style={{ border: `1px solid ${theme.text}` }}>{row.organization}</td>
+                                    <td className="border p-2" style={{ border: `1px solid ${theme.text}` }}>{row.group}</td>
+                                    <td className="border p-2" style={{ border: `1px solid ${theme.text}` }}>{row.status}</td>
+                                    <td className="border p-2" style={{ border: `1px solid ${theme.text}` }}>
                                         <div className="flex gap-2">
                                             <button
                                                 onClick={() => handleEditable(row.Id)}

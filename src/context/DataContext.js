@@ -7,7 +7,7 @@ export const DataProvider = ({ children }) => {
 
   const [theme, setTheme] = useState({
     text: '#9CA1A0',
-    fontFamily: "Times New Roman",
+    fontFamily: "",
     buttonBg: '#2A9B63',
     backBg: '#1e293b',
     bgColor: '#0f172a',
